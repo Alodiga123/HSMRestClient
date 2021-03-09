@@ -17,6 +17,7 @@ import java.util.Date;
 
 import com.alodiga.hsm.client.request.ParameterRequest;
 import com.alodiga.hsm.client.response.ARPCResponse;
+import com.alodiga.hsm.client.response.IBMOfSetResponse;
 import com.alodiga.hsm.client.response.VerifyPinUsingIBMMethodResponse;
 import com.alodiga.hsm.client.utils.GsonDateFormatter;
 import com.alodiga.hsm.client.utils.LoadProperties;
@@ -105,6 +106,12 @@ public class HSMClient {
             params = request.getVerifyPinUsingIBMMethodRequest("TD180", "ABC1234567BCD98A", "6281555895200000001", "0475");
             VerifyPinUsingIBMMethodResponse response = (VerifyPinUsingIBMMethodResponse) getResponse(metod, params, VerifyPinUsingIBMMethodResponse.class);
             System.out.println("IBM:" + response.getResponseCode() + " " + response.getResponseMessage()+" "+response.getVerificationValue());
+            
+            metod = lp.getProperties("prop.generateIBMPinOffSet");
+            params = request.getGenerateIBMPinOffSet("09758", "6281555895200000001", "0001", "D");
+            
+            IBMOfSetResponse response2 = (IBMOfSetResponse) getResponse(metod, params, IBMOfSetResponse.class);
+            System.out.println("IBMPinOffSet:" + response2.getResponseCode() + " " + response2.getResponseMessage()+" "+response2.getIBMOfSetResponse());
         } catch (Exception ex) {
             Logger.getLogger(HSMClient.class.getName()).log(Level.SEVERE, null, ex);
         }
