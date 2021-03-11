@@ -11,21 +11,21 @@ package com.alodiga.hsm.client.response;
  */
 public class IBMOfSetResponse  extends GeneralResponse{
 
-    private String IBMOfSetResponse;
+    private String ibmoffset;
 
     public IBMOfSetResponse(String responseCode, String responseMessage, String IBMOfSetResponse) {
         super();
         this.responseCode = responseCode;
         this.responseMessage = responseMessage;
-        this.IBMOfSetResponse = IBMOfSetResponse;
+        this.ibmoffset = IBMOfSetResponse;
     }
 
 	public String getIBMOfSetResponse() {
-		return IBMOfSetResponse;
+		return ibmoffset;
 	}
 
 	public void setIBMOfSetResponse(String iBMOfSetResponse) {
-		IBMOfSetResponse = iBMOfSetResponse;
+		ibmoffset = iBMOfSetResponse;
 	}
 
     

@@ -109,8 +109,8 @@ public class HSMClient {
             
             metod = lp.getProperties("prop.generateIBMPinOffSet");
             params = request.getGenerateIBMPinOffSet("09758", "6281555895200000001", "0001", "D");
-            
-            IBMOfSetResponse response2 = (IBMOfSetResponse) getResponse(metod, params, IBMOfSetResponse.class);
+            String generatePinOffset = request.getGenerateIBMPinOffSet("3BFA922F2180643D", "912", "0001", "D");
+            IBMOfSetResponse response2 = (IBMOfSetResponse) getResponse(metod, generatePinOffset, IBMOfSetResponse.class);
             System.out.println("IBMPinOffSet:" + response2.getResponseCode() + " " + response2.getResponseMessage()+" "+response2.getIBMOfSetResponse());
         } catch (Exception ex) {
             Logger.getLogger(HSMClient.class.getName()).log(Level.SEVERE, null, ex);
